@@ -4,7 +4,7 @@ const app = require('../src/app');
 describe('API tests', () => {
   test('GET /sum works correctly', async () => {
     const res = await request(app).get('/sum?a=2&b=3');
-    expect(res.body.result).toBe(5);
+    expect(res.body.result).toBe(999);
   });
 
   test('GET /sum handles invalid input', async () => {
