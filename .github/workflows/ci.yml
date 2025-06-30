@@ -44,4 +44,10 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+    - name: Crear issue si falló
+      if: failure()
+      uses: cristian-gallardo/create-issue-from-file@v5
+      with:
+        title: "❌ Falló el pipeline de tests en Node.js ${{ matrix.node-version }}"
+        content-filepath: .github/error-message.md
 
